@@ -38,11 +38,11 @@ class Contract:
 
     all = []
 
-    def __init__(self, author, book, date, royalites):
+    def __init__(self, author, book, date, royalties):
         self.author = author
         self.book = book
         self.date = date
-        self.royalties = royalites
+        self.royalties = royalties
         Contract.all.append(self)
 
     @property
@@ -86,5 +86,5 @@ class Contract:
         self._royalties = value
 
     @classmethod
-    def contracts_by_date(cls):
-        return sorted(cls.all, key=lambda c: c.date)
+    def contracts_by_date(cls, date):
+        return [contract for contract in cls.all if contract.date == date]
